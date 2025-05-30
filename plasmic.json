@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "inlined",
@@ -179,7 +179,8 @@
           "componentImportPath": "suinova-nft-builder/dist/index.js"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "66MC2d9B7YecVEphuUMtqF",
@@ -579,7 +580,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerConfigProvider"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "gzny5sU7cPH2nhvEqzdB2m",
@@ -789,7 +791,8 @@
           "componentImportPath": "@plasmicpkgs/antd/skinny/registerRate"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "o377HB3bFr4ZkQwQAbxSoD",
@@ -875,6 +878,46 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ],
+      "customFunctions": []
+    },
+    {
+      "projectId": "bGGYchQJnRrBLGcc2YbKZk",
+      "projectApiToken": "fHH4RtKGJjhxyBccnHhQPiUioBTU9Zc3A34iKsKjMfihqXzxd1JnteTml3uDYvZMMw33b6gNN5dPKLI0JWw",
+      "projectName": "plasmic-tabs",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_tabs/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "6CWa29v61H7v",
+          "name": "TabsContainer",
+          "displayName": "hostless-tabs-container",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "Ada26EZuR6FU",
+          "name": "TabUnderline",
+          "displayName": "hostless-tab-underline",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "aYBH4tJzVGvs",
+          "name": "TabButton",
+          "displayName": "hostless-tab-button",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "rRHIPMXc-a0S",
+          "name": "TabContent",
+          "displayName": "hostless-tab-content",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
         }
       ],
       "customFunctions": []

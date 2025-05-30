@@ -61,8 +61,8 @@ import { CopyIcon } from "suinova-nft-builder/dist/index.js";
 import { UserIcon } from "suinova-nft-builder/dist/index.js";
 import { LogoutIcon } from "suinova-nft-builder/dist/index.js";
 import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar";
-import { Tabs } from "@plasmicpkgs/antd/skinny/registerTabs";
-import { TabPane } from "@plasmicpkgs/antd/skinny/registerTabs";
+import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
+import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdSteps } from "@plasmicpkgs/antd5/skinny/registerSteps";
 
 import { useScreenVariants as useScreenVariantsbwki6Q2VtuOc } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: Bwki6q2VTUOc/globalVariant
@@ -95,8 +95,8 @@ export type PlasmicConnectWalletViewMintingNftDetails__OverridesType = {
   walletIcon?: Flex__<typeof WalletIcon>;
   sub?: Flex__<"sub">;
   button?: Flex__<"button">;
-  antdTabs?: Flex__<typeof Tabs>;
-  steps?: Flex__<typeof AntdSteps>;
+  tabs?: Flex__<typeof AntdTabs>;
+  steps2?: Flex__<typeof AntdSteps>;
 };
 
 export interface DefaultConnectWalletViewMintingNftDetailsProps {
@@ -135,19 +135,6 @@ function PlasmicConnectWalletViewMintingNftDetails__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "antdTabs.activeKey",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "tabletSmall") ? "1" : "1"
-      },
-      {
-        path: "steps.current",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
       {
         path: "teamMembers",
         type: "private",
@@ -221,6 +208,18 @@ function PlasmicConnectWalletViewMintingNftDetails__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "tabs.activeKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "1"
+      },
+      {
+        path: "steps2.current",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -964,626 +963,448 @@ function PlasmicConnectWalletViewMintingNftDetails__RenderFunc(props: {
                       ) : null}
                     </div>
                   </Stack__>
-                  <Tabs
-                    data-plasmic-name={"antdTabs"}
-                    data-plasmic-override={overrides.antdTabs}
+                  <AntdTabs
+                    data-plasmic-name={"tabs"}
+                    data-plasmic-override={overrides.tabs}
                     activeKey={generateStateValueProp($state, [
-                      "antdTabs",
+                      "tabs",
                       "activeKey"
                     ])}
-                    className={classNames("__wab_instance", sty.antdTabs)}
-                    onChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "antdTabs",
-                        "activeKey"
-                      ]).apply(null, eventArgs);
-                    }}
-                  >
-                    <TabPane
-                      className={classNames(
-                        "__wab_instance",
-                        sty.antdTabPane__jd1Bt
-                      )}
-                      key={"1"}
-                      tab={
-                        <div
+                    animateTabBar={true}
+                    animateTabContent={false}
+                    animated={true}
+                    className={classNames("__wab_instance", sty.tabs)}
+                    defaultActiveKey={"1"}
+                    items={
+                      <React.Fragment>
+                        <AntdTabItem
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__g3Mo0
+                            "__wab_instance",
+                            sty.tabItem___2DUe5
                           )}
-                        >
-                          {"Overview"}
-                        </div>
-                      }
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rY80Y
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___0X52A
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___2FTyk
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    $ctx.web3GlobalData.mintingInfo?.name ||
-                                    "Magic Astronauts"
-                                  );
-                                } catch (e) {
-                                  if (e instanceof TypeError) {
-                                    return "Magic Astronauts";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__cDac3
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    $ctx.web3GlobalData.mintingInfo
-                                      .description ||
-                                    `Embark on a Cosmic Journey with Magic Astronauts! 🚀✨
-Welcome to the Magic Astronauts NFT collection—a mesmerizing fusion of space exploration and ethereal wonder! Each Magic Astronaut is a unique digital masterpiece, blending futuristic space gear with mystical elements that capture the boundless imagination of the cosmos.
-`
-                                  );
-                                } catch (e) {
-                                  if (e instanceof TypeError) {
-                                    return "Embark on a Cosmic Journey with Magic Astronauts! \ud83d\ude80\u2728\nWelcome to the Magic Astronauts NFT collection\u2014a mesmerizing fusion of space exploration and ethereal wonder! Each Magic Astronaut is a unique digital masterpiece, blending futuristic space gear with mystical elements that capture the boundless imagination of the cosmos.";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__l9T6V
-                            )}
-                          >
-                            {"Collection Highlights"}
-                          </div>
-                          <ul
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.ul,
-                              sty.ul__gBthU
-                            )}
-                          >
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                sty.li__xLwD
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__a0JKx
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__qvzv5
-                                  )}
-                                >
-                                  {
-                                    "Unique Artworks: 1,000 one-of-a-kind NFTs, each featuring a Magic Astronaut with distinct traits, suits, and cosmic backgrounds."
-                                  }
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                          <ul
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.ul,
-                              sty.ul___6KkkT
-                            )}
-                          >
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                sty.li__oevjm
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__wrk4I
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__iCNt
-                                  )}
-                                >
-                                  {
-                                    "Surreal Aesthetics: Inspired by the intersection of science fiction and fantasy, our astronauts float through enchanted cloudscapes, glowing nebulae, and starry voids."
-                                  }
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                          <ul
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.ul,
-                              sty.ul__saHfW
-                            )}
-                          >
-                            <li
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                sty.li___7PhsH
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__czNfw
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__fHUqr
-                                  )}
-                                >
-                                  {
-                                    "Utility & Perks: Holders gain access to exclusive virtual space expeditions, community events, and future airdrops in the Magic Astronauts universe."
-                                  }
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__wsHna
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__zheWr
-                            )}
-                          >
-                            {"Vision"}
-                          </div>
-                          <AntdSteps
-                            data-plasmic-name={"steps"}
-                            data-plasmic-override={overrides.steps}
-                            className={classNames("__wab_instance", sty.steps)}
-                            current={generateStateValueProp($state, [
-                              "steps",
-                              "current"
-                            ])}
-                            direction={"vertical"}
-                            items={(() => {
-                              const __composite = [
-                                { title: null, description: null },
-                                { title: null, description: null },
-                                { title: null, description: null }
-                              ];
-                              __composite["0"]["title"] = new Date(
-                                $ctx.web3GlobalData.mintingInfo?.visions[0]?.visionTime
-                              )?.toDateString();
-                              __composite["0"]["description"] =
-                                $ctx.web3GlobalData.mintingInfo.visions[0]
-                                  .description ||
-                                "Early access and exclusive benefits for early supporters";
-                              __composite["1"]["title"] = new Date(
-                                $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
-                              )?.toDateString();
-                              __composite["1"]["description"] =
-                                $ctx.web3GlobalData.mintingInfo.visions[1]
-                                  .description ||
-                                "Priority minting for whitelisted members";
-                              __composite["2"]["title"] = new Date(
-                                $ctx.web3GlobalData.mintingInfo?.visions[2]
-                                  ?.visionTime
-                                  ? $ctx.web3GlobalData.mintingInfo?.visions[2]
-                                      ?.visionTime
-                                  : new Date(
-                                      $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
-                                    ).setDate(
-                                      new Date(
-                                        $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
-                                      ).getDate() + 3
-                                    )
-                              )?.toDateString();
-                              __composite["2"]["description"] =
-                                $ctx.web3GlobalData.mintingInfo?.visions[2]
-                                  ?.description || "Milestone 3";
-                              return __composite;
-                            })()}
-                            onChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "steps",
-                                "current"
-                              ]).apply(null, eventArgs);
-                            }}
-                            progressDot={false}
-                            responsive={true}
-                            size={"small"}
-                            status={"finish"}
-                            type={"default"}
-                          />
-                        </div>
-                      </Stack__>
-                    </TabPane>
-                    <TabPane
-                      className={classNames(
-                        "__wab_instance",
-                        sty.antdTabPane___0Q0KS
-                      )}
-                      key={"2"}
-                      tab={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___71KbS
-                          )}
-                        >
-                          {"Team"}
-                        </div>
-                      }
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gvRus
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xXahC
-                          )}
-                        >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            []
-                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentItem = __plasmic_item_0;
-                            const currentIndex = __plasmic_idx_0;
-                            return (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__vdkP8
-                                )}
-                                key={currentIndex}
-                              >
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img___5ZwQb)}
-                                  displayHeight={"auto"}
-                                  displayMaxHeight={"200px"}
-                                  displayMaxWidth={"none"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"auto"}
-                                  loading={"lazy"}
-                                  src={(() => {
-                                    try {
-                                      return currentItem.img;
-                                    } catch (e) {
-                                      if (e instanceof TypeError) {
-                                        return "https://s3-alpha-sig.figma.com/img/d125/0dcf/43d2a28cf3971315cbc5d8f588f7d3da?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QCo3rE7lOrN-ynf84KzwxQQi1552o2sj0e-Zkm1u-lqkuVjKB10BiogIbM~tOfyfZqWkpW7c5pM2dBBGIRlg1Qyy~iJ5~9EHfgREFixlns62HXLXaLHFJRTXth2ZEuFJm5sZ0uTdrvmv8cW0oTtZFGpZ2AEy7cPYD8gsMxKXyboiNLVXO301QHK5TPmnVdKrx5kGEqtGvud6OPtqd5Tu19Omt5FqvrW-ZF2WtP2ELeymdquEQ~z9JnGcUy1ZbpYF86djav6ceaTIYpNhuBRJ5Gqp10NSRfbz~AEwfaPPyag2YQrtX9UMu3payh~uHTfm~u8i0YG5T7LLD9ZnmxWdow__";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__adjr3
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.name;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "Magic Astronaut #001 ";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__yCoby
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.price;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "5.67 SUI";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__d4AyE
-                          )}
-                        >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            []
-                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentItem = __plasmic_item_0;
-                            const currentIndex = __plasmic_idx_0;
-                            return (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__vt7D1
-                                )}
-                                key={currentIndex}
-                              >
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img__jM29)}
-                                  displayHeight={"auto"}
-                                  displayMaxHeight={"200px"}
-                                  displayMaxWidth={"none"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"auto"}
-                                  loading={"lazy"}
-                                  src={(() => {
-                                    try {
-                                      return currentItem.img;
-                                    } catch (e) {
-                                      if (e instanceof TypeError) {
-                                        return "https://s3-alpha-sig.figma.com/img/d125/0dcf/43d2a28cf3971315cbc5d8f588f7d3da?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QCo3rE7lOrN-ynf84KzwxQQi1552o2sj0e-Zkm1u-lqkuVjKB10BiogIbM~tOfyfZqWkpW7c5pM2dBBGIRlg1Qyy~iJ5~9EHfgREFixlns62HXLXaLHFJRTXth2ZEuFJm5sZ0uTdrvmv8cW0oTtZFGpZ2AEy7cPYD8gsMxKXyboiNLVXO301QHK5TPmnVdKrx5kGEqtGvud6OPtqd5Tu19Omt5FqvrW-ZF2WtP2ELeymdquEQ~z9JnGcUy1ZbpYF86djav6ceaTIYpNhuBRJ5Gqp10NSRfbz~AEwfaPPyag2YQrtX9UMu3payh~uHTfm~u8i0YG5T7LLD9ZnmxWdow__";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__iix9M
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.name;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "Magic Astronaut #001 ";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__ngD6E
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.price;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "5.67 SUI";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__byhFx
-                        )}
-                      >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $ctx.web3GlobalData.mintingInfo.teams;
-                            } catch (e) {
-                              if (e instanceof TypeError) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (
+                          key={"1"}
+                          label={
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__r7Dtz
+                                projectcss.__wab_text,
+                                sty.text__t5OV
                               )}
-                              key={currentIndex}
                             >
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__rrzV3)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileSmall"
-                                  )
-                                    ? "350px"
-                                    : hasVariant(
+                              {"Overview"}
+                            </div>
+                          }
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xAh7H
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__rNreN
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___0E3Yf
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $ctx.web3GlobalData.mintingInfo?.name ||
+                                        "Magic Astronauts"
+                                      );
+                                    } catch (e) {
+                                      if (e instanceof TypeError) {
+                                        return "Magic Astronauts";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__s045C
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $ctx.web3GlobalData.mintingInfo
+                                          .description ||
+                                        `Embark on a Cosmic Journey with Magic Astronauts! 🚀✨
+Welcome to the Magic Astronauts NFT collection—a mesmerizing fusion of space exploration and ethereal wonder! Each Magic Astronaut is a unique digital masterpiece, blending futuristic space gear with mystical elements that capture the boundless imagination of the cosmos.
+`
+                                      );
+                                    } catch (e) {
+                                      if (e instanceof TypeError) {
+                                        return "Embark on a Cosmic Journey with Magic Astronauts! \ud83d\ude80\u2728\nWelcome to the Magic Astronauts NFT collection\u2014a mesmerizing fusion of space exploration and ethereal wonder! Each Magic Astronaut is a unique digital masterpiece, blending futuristic space gear with mystical elements that capture the boundless imagination of the cosmos.";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__qF2ZV
+                                )}
+                              >
+                                {"Collection Highlights"}
+                              </div>
+                              <ul
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.ul,
+                                  sty.ul__ovZhL
+                                )}
+                              >
+                                <li
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.li,
+                                    sty.li___9L4T7
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__eIrCs
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__cyEhd
+                                      )}
+                                    >
+                                      {
+                                        "Unique Artworks: 1,000 one-of-a-kind NFTs, each featuring a Magic Astronaut with distinct traits, suits, and cosmic backgrounds."
+                                      }
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                              <ul
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.ul,
+                                  sty.ul__ikAzd
+                                )}
+                              >
+                                <li
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.li,
+                                    sty.li___3LAKr
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__dUsw
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__jmnZj
+                                      )}
+                                    >
+                                      {
+                                        "Surreal Aesthetics: Inspired by the intersection of science fiction and fantasy, our astronauts float through enchanted cloudscapes, glowing nebulae, and starry voids."
+                                      }
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                              <ul
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.ul,
+                                  sty.ul__utmR3
+                                )}
+                              >
+                                <li
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.li,
+                                    sty.li__j0Ckw
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__fkHk9
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__dJ6T
+                                      )}
+                                    >
+                                      {
+                                        "Utility & Perks: Holders gain access to exclusive virtual space expeditions, community events, and future airdrops in the Magic Astronauts universe."
+                                      }
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__dyjpk
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__bAwpM
+                                )}
+                              >
+                                {"Vision"}
+                              </div>
+                              <AntdSteps
+                                data-plasmic-name={"steps2"}
+                                data-plasmic-override={overrides.steps2}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.steps2
+                                )}
+                                current={generateStateValueProp($state, [
+                                  "steps2",
+                                  "current"
+                                ])}
+                                direction={"vertical"}
+                                items={(() => {
+                                  const __composite = [
+                                    { title: null, description: null },
+                                    { title: null, description: null },
+                                    { title: null, description: null }
+                                  ];
+                                  __composite["0"]["title"] = new Date(
+                                    $ctx.web3GlobalData.mintingInfo?.visions[0]?.visionTime
+                                  )?.toDateString();
+                                  __composite["0"]["description"] =
+                                    $ctx.web3GlobalData.mintingInfo.visions[0]
+                                      .description ||
+                                    "Early access and exclusive benefits for early supporters";
+                                  __composite["1"]["title"] = new Date(
+                                    $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
+                                  )?.toDateString();
+                                  __composite["1"]["description"] =
+                                    $ctx.web3GlobalData.mintingInfo.visions[1]
+                                      .description ||
+                                    "Priority minting for whitelisted members";
+                                  __composite["2"]["title"] = new Date(
+                                    $ctx.web3GlobalData.mintingInfo?.visions[2]
+                                      ?.visionTime
+                                      ? $ctx.web3GlobalData.mintingInfo
+                                          ?.visions[2]?.visionTime
+                                      : new Date(
+                                          $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
+                                        ).setDate(
+                                          new Date(
+                                            $ctx.web3GlobalData.mintingInfo?.visions[1]?.visionTime
+                                          ).getDate() + 3
+                                        )
+                                  )?.toDateString();
+                                  __composite["2"]["description"] =
+                                    $ctx.web3GlobalData.mintingInfo?.visions[2]
+                                      ?.description || "Milestone 3";
+                                  return __composite;
+                                })()}
+                                onChange={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "steps2",
+                                    "current"
+                                  ]).apply(null, eventArgs);
+                                }}
+                                progressDot={false}
+                                responsive={true}
+                                size={"small"}
+                                status={"finish"}
+                                type={"default"}
+                              />
+                            </div>
+                          </Stack__>
+                        </AntdTabItem>
+                        <AntdTabItem
+                          className={classNames(
+                            "__wab_instance",
+                            sty.tabItem__t7Aj3
+                          )}
+                          key={"2"}
+                          label={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ubm7N
+                              )}
+                            >
+                              {"Team"}
+                            </div>
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__k1R9
+                            )}
+                          >
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $ctx.web3GlobalData.mintingInfo.teams;
+                                } catch (e) {
+                                  if (e instanceof TypeError) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__vL7V
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <PlasmicImg__
+                                    alt={""}
+                                    className={classNames(sty.img__c9NVv)}
+                                    displayHeight={
+                                      hasVariant(
                                         globalVariants,
                                         "screen",
-                                        "mobileLarge"
+                                        "mobileSmall"
                                       )
-                                    ? "280px"
-                                    : hasVariant(
+                                        ? "350px"
+                                        : hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobileLarge"
+                                          )
+                                        ? "280px"
+                                        : hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "tabletSmall"
+                                          )
+                                        ? "260px"
+                                        : "160px"
+                                    }
+                                    displayMaxHeight={
+                                      hasVariant(
                                         globalVariants,
                                         "screen",
                                         "tabletSmall"
                                       )
-                                    ? "260px"
-                                    : "160px"
-                                }
-                                displayMaxHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "tabletSmall"
-                                  )
-                                    ? "none"
-                                    : "160px"
-                                }
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"auto"}
-                                loading={"lazy"}
-                                src={
-                                  "https://dev-suinova.s3.ap-southeast-1.amazonaws.com/e2ace5c90508b6d2ef3467112d232da0.jpg"
-                                }
-                              />
+                                        ? "none"
+                                        : "160px"
+                                    }
+                                    displayMaxWidth={"100%"}
+                                    displayMinHeight={"0"}
+                                    displayMinWidth={"0"}
+                                    displayWidth={"auto"}
+                                    loading={"lazy"}
+                                    src={
+                                      "https://dev-suinova.s3.ap-southeast-1.amazonaws.com/e2ace5c90508b6d2ef3467112d232da0.jpg"
+                                    }
+                                  />
 
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__tM1Gr
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__rfsu3
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.memberName;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "James";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__vjYkd
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__hvtk6
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.memberName;
+                                          } catch (e) {
+                                            if (e instanceof TypeError) {
+                                              return "James";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__itJq
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.memberTitle;
+                                          } catch (e) {
+                                            if (e instanceof TypeError) {
+                                              return "Co Founder";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__bhYqP
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.memberTitle;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "Co Founder";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__l9I8N
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__p5CIj
-                          )}
-                        />
-                      </div>
-                    </TabPane>
-                  </Tabs>
+                              );
+                            })}
+                          </div>
+                        </AntdTabItem>
+                      </React.Fragment>
+                    }
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "tabs",
+                        "activeKey"
+                      ]).apply(null, eventArgs);
+                    }}
+                    sticky={false}
+                    tabBarBackground={"#FFF"}
+                    tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
+                    tabsScopeClassName={sty["tabs__tabs"]}
+                  />
                 </div>
               </div>
             </div>
@@ -1595,13 +1416,13 @@ Welcome to the Magic Astronauts NFT collection—a mesmerizing fusion of space e
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "walletIcon", "sub", "button", "antdTabs", "steps"],
+  root: ["root", "svg", "walletIcon", "sub", "button", "tabs", "steps2"],
   svg: ["svg"],
   walletIcon: ["walletIcon"],
   sub: ["sub"],
   button: ["button"],
-  antdTabs: ["antdTabs", "steps"],
-  steps: ["steps"]
+  tabs: ["tabs", "steps2"],
+  steps2: ["steps2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1612,8 +1433,8 @@ type NodeDefaultElementType = {
   walletIcon: typeof WalletIcon;
   sub: "sub";
   button: "button";
-  antdTabs: typeof Tabs;
-  steps: typeof AntdSteps;
+  tabs: typeof AntdTabs;
+  steps2: typeof AntdSteps;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1688,8 +1509,8 @@ export const PlasmicConnectWalletViewMintingNftDetails = Object.assign(
     walletIcon: makeNodeComponent("walletIcon"),
     sub: makeNodeComponent("sub"),
     button: makeNodeComponent("button"),
-    antdTabs: makeNodeComponent("antdTabs"),
-    steps: makeNodeComponent("steps"),
+    tabs: makeNodeComponent("tabs"),
+    steps2: makeNodeComponent("steps2"),
 
     // Metadata about props expected for PlasmicConnectWalletViewMintingNftDetails
     internalVariantProps:
